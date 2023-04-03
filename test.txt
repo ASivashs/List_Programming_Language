@@ -1,0 +1,36 @@
+#1
+def sum(a, b){
+    result = a + b - c * (b / 4)
+    return result
+}
+
+def replace_element(a, b){
+    a, b = b, a
+    result = [a, b]
+    return result
+}
+
+def main(args){
+    list1 = [a, b, c]
+    list2 = [c, d, a]
+    queue = (1, 2, 3,)
+    list1[1] = list1[2]
+
+    element1 = 10
+    element2 = 20
+
+    summa = sum(10, 20)
+
+    list1.pop()
+
+    a = 0
+    for (a in element2){
+        if (a > element1){
+            a = a + 1
+            while (a > element2){
+                a = a - 2
+            }
+        }
+    }
+
+}
