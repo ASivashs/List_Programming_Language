@@ -72,8 +72,8 @@ print: PRINT OPEN_PAREN (variables_and_num COMMA?)* CLOSE_PAREN;
 range: RANGE OPEN_PAREN variables_and_num CLOSE_PAREN;
 input: INPUT OPEN_PAREN CLOSE_PAREN;
 return_def: RETURN ID
-        | NUM
-        ;
+            | NUM
+            ;
 method: variables POINT_FOR_M methods OPEN_PAREN variables_and_num? CLOSE_PAREN;
 
 // VARIABLES
@@ -131,19 +131,19 @@ CLOSE_BRACK:    ']';
 OPEN_BRACE:     '{';
 CLOSE_BRACE:    '}';
 
-ASSIGN:     '=';
-ADD:        '+';
-MINUS:      '-';
-MUL:        '*';
-DIV:        '/';
-POW:        '**';
-LESS_THAN : '<';
-GREATER_THAN : '>';
-EQUALS :    '==';
-GT_EQ :     '>=';
-LT_EQ :     '<=';
-NOT_EQ_1 :  '<>';
-NOT_EQ_2 :  '!=';
+ASSIGN:         '=';
+ADD:            '+';
+MINUS:          '-';
+MUL:            '*';
+DIV:            '/';
+POW:            '**';
+LESS_THAN :     '<';
+GREATER_THAN :  '>';
+EQUALS :        '==';
+GT_EQ :         '>=';
+LT_EQ :         '<=';
+NOT_EQ_1 :      '<>';
+NOT_EQ_2 :      '!=';
 
 ID: [a-zA-Z_] [a-zA-Z0-9_]*;
 NUM: [1-9][0-9]*|[0];
