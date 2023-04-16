@@ -5,7 +5,7 @@ def sum(a, b){
 
 def replace_element(a, b){
     a, b = b, a
-    result = [a, b]
+    result = [a, baaaaaaaaaaaaaaa, 12, [[[, 343 ]]]]
     return result
 }
 

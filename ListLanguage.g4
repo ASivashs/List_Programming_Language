@@ -19,8 +19,7 @@ statement: assign_element
 
 // OPERATIONS
 assign_element: (get_element
-            | ID COMMA?)+ ASSIGN
-            ( list_init
+            | ID COMMA?)+ ASSIGN( list_init
             | elem_init
             | queue_init
             | tree
@@ -31,7 +30,7 @@ assign_element: (get_element
             | ID COMMA?)+
             ;
 operations: OPEN_PAREN* (variables_and_num (ADD | MINUS | MUL | DIV)?)+ operation_list? CLOSE_PAREN*;
-get_element: ID OPEN_BRACK NUM CLOSE_BRACK;
+get_element: ID OPEN_BRACK (variables_and_num | get_element) CLOSE_BRACK;
 
 // INIT
 queue_init: OPEN_PAREN (elem_init COMMA?)* CLOSE_PAREN;

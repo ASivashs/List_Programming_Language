@@ -1,5 +1,4 @@
-from antlr4.error.Errors import RecognitionException, NoViableAltException, InputMismatchException, \
-    FailedPredicateException
+from antlr4.error.Errors import InputMismatchException, FailedPredicateException
 from antlr4.error.ErrorStrategy import DefaultErrorStrategy
 from antlr4 import *
 
@@ -11,10 +10,6 @@ class ListErrorStrategy(DefaultErrorStrategy):
         super().__init__()
 
     def reportError(self, recognizer: Parser, e: RecognitionException, localctx: ParserRuleContext = None):
-        # if we've already reported an error and have not matched a token
-        # yet successfully, don't report any errors.
-        if self.inErrorRecoveryMode(recognizer):
-            return  # don't report spurious errors
         self.beginErrorCondition(recognizer)
         if isinstance(e, NoViableAltException):
             msg = self.checkContext(localctx)
@@ -31,7 +26,6 @@ class ListErrorStrategy(DefaultErrorStrategy):
 
     def checkContext(self, localctx: ParserRuleContext):
         msg = None
-        print(type(localctx))
 
         # For
         if isinstance(localctx, ListLanguageParser.For_initContext):
@@ -85,7 +79,7 @@ class ListErrorStrategy(DefaultErrorStrategy):
 
         # Variables and init
         elif isinstance(localctx, ListLanguageParser.MethodsContext):
-            msg = "Variable or integer statement mismatched form - {}. Expected basic_type <name> value?"
+            msg = "Methods statement mismatched form - {}. Expected '.' between name and method."
         elif isinstance(localctx, ListLanguageParser.Variables_and_numContext):
             msg = "Variable or integer statement mismatched form - {}. Expected basic_type <name> value?"
         elif isinstance(localctx, ListLanguageParser.VariablesContext):
@@ -134,4 +128,3 @@ class ListErrorStrategy(DefaultErrorStrategy):
         if not msg:
             msg = "rule " + rule_name + " " + e.message
         recognizer.notifyErrorListeners(msg, e.offendingToken, e)
-
