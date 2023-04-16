@@ -2,11 +2,11 @@ from antlr4 import *
 from gen.ListLanguageLexer import ListLanguageLexer
 from gen.ListLanguageParser import ListLanguageParser
 
-from ListErrorListener import ListErrorListener
+from ListLanguage_exceptions.ListErrorListener import ListErrorListener
 
 
 def main():
-    with open('test.txt', 'r') as text_file:
+    with open('Code_examples/test1.txt', 'r') as text_file:
         test = text_file.read()
         input_stream = InputStream(test)
     lexer = ListLanguageLexer(input_stream)
@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
 # Main for version with strategy
 
-# with open('test.txt', 'r') as text_file:
+# with open('test1.txt', 'r') as text_file:
 #     test = text_file.read()
 #     # print(test)
 #     input_stream = InputStream(test)

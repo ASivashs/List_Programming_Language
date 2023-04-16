@@ -1,4 +1,4 @@
-# Generated from C:/University/6_sem/YAPIS/grammar\ListLanguage.g4 by ANTLR 4.12.0
+# Generated from C:/University/6_sem/YAPIS/grammar\ListLanguage_exceptions.g4 by ANTLR 4.12.0
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -136,7 +136,7 @@ def serializedATN():
 
 class ListLanguageParser ( Parser ):
 
-    grammarFileName = "ListLanguage.g4"
+    grammarFileName = "ListLanguage_exceptions.g4"
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
