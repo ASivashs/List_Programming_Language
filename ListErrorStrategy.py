@@ -17,19 +17,19 @@ class ListErrorStrategy(DefaultErrorStrategy):
             return  # don't report spurious errors
         self.beginErrorCondition(recognizer)
         if isinstance(e, NoViableAltException):
-            msg = self.check_context(localctx)
+            msg = self.checkContext(localctx)
             self.reportNoViableAlternative(recognizer, e, msg)
         elif isinstance(e, InputMismatchException):
-            msg = self.check_context(localctx)
+            msg = self.checkContext(localctx)
             self.reportInputMismatch(recognizer, e, msg)
         elif isinstance(e, FailedPredicateException):
-            msg = self.check_context(localctx)
+            msg = self.checkContext(localctx)
             self.reportFailedPredicate(recognizer, e, msg)
         else:
             print("unknown recognition error type: " + type(e).__name__)
             recognizer.notifyErrorListeners(e.message, e.offendingToken, e)
 
-    def check_context(self, localctx: ParserRuleContext):
+    def checkContext(self, localctx: ParserRuleContext):
         msg = None
         print(type(localctx))
 
@@ -102,40 +102,6 @@ class ListErrorStrategy(DefaultErrorStrategy):
             msg = "Type declaration mismatched form - {}. Expected basic_type <name> value?"
         elif isinstance(localctx, ListLanguageParser.Operation_listContext):
             msg = "Operation declaration mismatched form - {}. Expected basic_type <name> value?"
-
-        # elif isinstance(localctx, ListLanguageParser.CustFuncCallContext):
-        #     msg = "Function call mismatched form - {}. Expected func_name(params)"
-        # elif isinstance(localctx, ListLanguageParser.IndexStmtContext):
-        #     msg = "Index statement mismatched form - {}. Expected value[value]"
-        # elif isinstance(localctx, ListLanguageParser.ReadStrStmtContext):
-        #     msg = "read_string function mismatched form - {}. Expected read_string();"
-        # elif isinstance(localctx, ListLanguageParser.ReturnStmtContext):
-        #     msg = "return statement mismatched form - {}. Expected return value;"
-        # elif isinstance(localctx, (
-        # ListLanguageParser.CreateColStmtContext, ListLanguageParser.CreateRowStmtContext, ListLanguageParser.CreateTablStmtContext)):
-        #     msg = "create function has a different form - {}. Expected create_function(params)."
-        # elif isinstance(localctx, ListLanguageParser.DelFuncContext):
-        #     msg = "delete function has a mismatched form - {}. Expected delete_function(params)."
-        # elif isinstance(localctx, ListLanguageParser.InsertStmtContext):
-        #     msg = "Insert function has a mismatched form - {}. Expected insert(value, value, value)."
-        # elif isinstance(localctx, ListLanguageParser.FindStmtContext):
-        #     msg = "Find function has a different form - {}. Expected find(val1, val2)"
-        # elif isinstance(localctx, ListLanguageParser.LengthStmtContext):
-        #     msg = "Find function has a different form - {}. Expected length(value)"
-        # elif isinstance(localctx, ListLanguageParser.CustFuncCallContext):
-        #     msg = "Custom function call has a different form - {}. Expected func_name(params)"
-        # elif isinstance(localctx, ListLanguageParser.MinMaxFuncStmtContext):
-        #     msg = "min/max function call has a different form - {}. Expected min_max_name(value)"
-        # elif isinstance(localctx, ListLanguageParser.ReshapeStmtContext):
-        #     msg = "reshape function has a different form - {}. Expected reshape(val1, val2, val3)"
-        # elif isinstance(localctx, ListLanguageParser.ListStmtContext):
-        #     msg = "List definition has a different form - {}. Expected [...,...,...]"
-        # elif isinstance(localctx, ListLanguageParser.BoolExprContext):
-        #     msg = "Boolean expresion has a different form - {}. Expeted val1 <bool_sign> val2"
-        # elif isinstance(localctx, ListLanguageParser.ReturnTypeContext):
-        #     msg = "Return value has a different form - {}. Gotten non return statement."
-        # elif isinstance(localctx, ListLanguageParser.BasicTypeNameContext):
-        #     msg = "Basic type name expected. But {} received."
         return msg
 
     def reportNoViableAlternative(self, recognizer: Parser, e: NoViableAltException, msg: str = None):
@@ -144,6 +110,7 @@ class ListErrorStrategy(DefaultErrorStrategy):
             if e.startToken.type == Token.EOF:
                 inp = "<EOF>"
             else:
+                print("getText")
                 inp = tokens.getText((e.startToken, e.offendingToken))
         else:
             inp = "<unknown input>"

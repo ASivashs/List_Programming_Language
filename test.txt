@@ -1,5 +1,3 @@
-asdszc:::::q;1rscx{
-}
 def sum(a, b){
     result = a + b - c * (b / 4)
     return result
