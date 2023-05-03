@@ -1,5 +1,5 @@
 from antlr4.error.ErrorListener import ErrorListener
-from antlr4.error.Errors import NoViableAltException, InputMismatchException
+from antlr4.error.Errors import NoViableAltException, InputMismatchException, UnsupportedOperationException
 
 from colorama import Fore
 
@@ -12,7 +12,7 @@ class ListErrorListener(ErrorListener):
             print(f"{Fore.LIGHTRED_EX}Syntax error: mismatched input '{offend_symbol}' at line {line}, column {column}.\n"
                   f"Expected one of the following tokens: {expected_tokens}.{Fore.RESET}")
         elif isinstance(type_error, NoViableAltException):
-            print(f"{Fore.LIGHTRED_EX}Syntax error: {msg} at line: {line}, column {column}.{Fore.RESET}")
+            print(f"{Fore.LIGHTRED_EX}Syntax error: {msg} at line {line}, column {column}.{Fore.RESET}")
         else:
             print(f"{Fore.LIGHTRED_EX}Syntax error at line {line}, column {column}: {msg}.{Fore.RESET}")
         underline_error(recognizer, line, column)
@@ -24,7 +24,8 @@ def underline_error(recognizer, line, col):
     lines = input_str.split('\n')
     error_line = lines[line - 1]
     print(error_line)
-    print(' ' * col + Fore.LIGHTRED_EX + '^' + Fore.RESET)
+    if error_line:
+        print(' ' * col + Fore.LIGHTRED_EX + '^' + Fore.RESET)
 
 
 #  Version with strategy

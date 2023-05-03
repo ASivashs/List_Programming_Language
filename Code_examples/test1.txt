@@ -3,26 +3,26 @@ def sum(a, b){
     return result
 }
 
-def replace_element(a, b){
-    a, b = b, a
-    result = [a, baaaaaaaaaaaaaaa, 12, [[[, 343 ]]]]
-    return result
-}
-
 def main(args){
+
     list1 = [a, b, c]
     list2 = [c, d, a]
     queue = (1, 2, 3,)
     list1[1] = list1[2]
 
-    element1 = 10
+    element1 = 10 + 7
     element2 = 20
-
-    summa = sum(10, 20)
 
     list1.pop()
 
-    a = 0
+    inp = input()
+
+    a = [1,2,3]
+
+    while (a > nea){
+        print(a)
+    }
+
     for (a in element2){
         if (a > element1){
             a = a + 1
@@ -31,5 +31,4 @@ def main(args){
             }
         }
     }
-
 }

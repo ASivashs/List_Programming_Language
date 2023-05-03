@@ -19,7 +19,8 @@ statement: assign_element
 
 // OPERATIONS
 assign_element: (get_element
-            | ID COMMA?)+ ASSIGN( list_init
+            | ID COMMA?)+ ASSIGN
+            ( list_init
             | elem_init
             | queue_init
             | tree

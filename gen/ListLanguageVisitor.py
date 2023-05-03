@@ -1,4 +1,4 @@
-# Generated from C:/University/6_sem/YAPIS/grammar\ListLanguage_exceptions.g4 by ANTLR 4.12.0
+# Generated from C:/University/6_sem/YAPIS/grammar\ListLanguage.g4 by ANTLR 4.12.0
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .ListLanguageParser import ListLanguageParser

@@ -1,8 +1,9 @@
 from antlr4 import *
+
 from gen.ListLanguageLexer import ListLanguageLexer
 from gen.ListLanguageParser import ListLanguageParser
-
 from ListLanguage_exceptions.ListErrorListener import ListErrorListener
+from ListLanguage_exceptions.ListErrorVisitor import ListErrorVisitor
 
 
 def main():
@@ -16,6 +17,7 @@ def main():
     syntax_error_listener = ListErrorListener()
     parser.addErrorListener(syntax_error_listener)
     tree = parser.program()
+    visitor = ListErrorVisitor(tree)
 
 
 if __name__ == "__main__":

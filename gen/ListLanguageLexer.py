@@ -1,4 +1,4 @@
-# Generated from C:/University/6_sem/YAPIS/grammar\ListLanguage_exceptions.g4 by ANTLR 4.12.0
+# Generated from C:/University/6_sem/YAPIS/grammar\ListLanguage.g4 by ANTLR 4.12.0
 from antlr4 import *
 from io import StringIO
 import sys
@@ -175,7 +175,7 @@ class ListLanguageLexer(Lexer):
                   "EQUALS", "GT_EQ", "LT_EQ", "NOT_EQ_1", "NOT_EQ_2", "ID", 
                   "NUM", "WS" ]
 
-    grammarFileName = "ListLanguage_exceptions.g4"
+    grammarFileName = "ListLanguage.g4"
 
     def __init__(self, input=None, output:TextIO = sys.stdout):
         super().__init__(input, output)
