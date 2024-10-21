@@ -10,7 +10,7 @@ def main(args){
     queue = (1, 2, 3,)
     list1[1] = list1[2]
 
-    element1 = 10 + 7
+    element1 = 10
     element2 = 20
 
     list1.pop()
@@ -19,11 +19,9 @@ def main(args){
 
     a = [1,2,3]
 
-    while (a > nea){
-        print(a)
-    }
+    i = 0
 
-    for (a in element2){
+    for (i in element1){
         if (a > element1){
             a = a + 1
             while (a > element2){
